@@ -99,4 +99,8 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-alias config='/usr/bin/git --git-dir=/Users/samholden/.cfg/ --work-tree=/Users/samholden'
+# alias config='/usr/bin/git --git-dir=/Users/samholden/.cfg/ --work-tree=/Users/samholden'
+
+if [ -f ~/.zsh_aliases ]; then
+    source ~/.zsh_aliases
+fi
