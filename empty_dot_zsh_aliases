@@ -7,3 +7,4 @@ alias cm='chezmoi'
 
 ## General
 alias ll='ls -la'
+alias vi='nvim'
