@@ -1,0 +1,39 @@
+#!/bin/bash
+
+if [[ "$OSTYPE" == "darwin"* ]]; then
+    echo "Running on macOS"
+    # Ensure Homebrew is installed
+    if ! command -v brew &> /dev/null; then
+        echo "Installing Homebrew..."
+        /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+    fi
+    
+    # List of applications to install via Homebrew
+    apps=(zsh git chezmoi vim)
+    for app in "${apps[@]}"; do
+        if ! brew list "$app" &> /dev/null; then
+            echo "Installing $app..."
+            brew install "$app"
+        else
+            echo "$app is already installed."
+        fi
+    done
+elif [[ "$OSTYPE" == "linux-gnu"* ]]; then
+    echo "Detected Ubuntu/Debian. Proceeding with apt installations..."
+    
+    sudo apt update
+    
+    # List of applications to install via apt
+    apps=(zsh git chezmoi vim)
+    for app in "${apps[@]}"; do
+        if ! dpkg -l | grep -q "$app"; then
+            echo "Installing $app..."
+            sudo apt install -y "$app"
+        else
+            echo "$app is already installed."
+        fi
+    done
+else
+    echo "Unknown OS"
+fi
+
