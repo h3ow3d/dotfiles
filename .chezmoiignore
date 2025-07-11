@@ -1,0 +1,30 @@
+# Ignore Oh My Zsh cache files
+.oh-my-zsh/cache/*
+
+# Ignore Zsh compiled scripts (.zwc files)
+.oh-my-zsh/custom/themes/powerlevel10k/*.zwc
+.oh-my-zsh/custom/themes/powerlevel10k/internal/*.zwc
+.oh-my-zsh/custom/themes/powerlevel10k/gitstatus/*.zwc
+
+# Ignore Zsh history file to avoid tracking command history
+.zsh_history
+
+# Ignore system-specific files that don't need to be shared
+.local/share/nvim/swap/*
+.local/share/nvim/backup/*
+.local/share/nvim/undo/*
+
+# Ignore temporary files and logs
+*.log
+*.tmp
+*.swp
+*.bak
+.DS_Store
+
+# Ignore VS Code settings or other editor-specific files if not needed
+.vscode/
+.idea/
+
+# Ignore any machine-specific or sensitive files
+.ssh/
+
